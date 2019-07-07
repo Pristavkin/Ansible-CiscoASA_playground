@@ -1,0 +1,12 @@
+---
+- hosts: asa
+  gather_facts: false
+  
+  tasks:
+  - name: SHOW VER
+    asa_command:
+      commands:
+        - show version
+    register: version
+ 
+  - debug: var=version.stdout_lines
